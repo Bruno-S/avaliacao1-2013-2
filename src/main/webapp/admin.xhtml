@@ -17,7 +17,25 @@
 
     <ui:define name="content">
         <h:form>
+            <h:outputText value="#{loginBean.usuario}"/> <img src="imagens/usuario.jpg" alt=""/> <h:outputText value="admin [administrador]"/>
         </h:form>
     </ui:define>
+    
+    <h:dataTable value="#{loginListBean.login}" var="login"
+                 styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"> 
+    			<h:column>    				
+    				<f:facet name="header">Usuario</f:facet>    				
+    				#{login.usuario}
+    			</h:column> 
+    			<h:column>
+    				<f:facet name="header">Data</f:facet>
+    				#{login.data}
+    			</h:column>
+    		</h:dataTable>
+    
+    <h:commandButton value="Login" action = "login"/>
+    <h:commandButton value="Cadastro" action = "cadastro"/>
 
 </ui:composition>
